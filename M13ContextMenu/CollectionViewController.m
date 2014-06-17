@@ -68,7 +68,7 @@
 {
     BasicCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BasicCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%li", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.row];
     
     return cell;
 }
@@ -95,7 +95,7 @@
         [string appendString:@"Trash Action."];
     }
     
-    [string appendFormat:@" For cell at index: %li.", indexPath.row];
+    [string appendFormat:@" For cell at index: %li.", (long)indexPath.row];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Action Selected" message:string delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];

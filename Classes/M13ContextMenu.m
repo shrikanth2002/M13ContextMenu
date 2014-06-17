@@ -156,6 +156,8 @@ CGFloat const M13AnimationDelay = 0.04;
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         //Setup before showing the menu
         _currentItemIndex = NSNotFound;
+        _originLocation = CGPointZero;
+        _currentLocation = CGPointZero;
         self.backgroundColor = [UIColor clearColor];
         
         //Add the menu to the application window.
