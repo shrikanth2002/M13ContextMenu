@@ -162,6 +162,7 @@ CGFloat const M13AnimationDelay = 0.04;
         
         //Add the menu to the application window.
         [[UIApplication sharedApplication].keyWindow addSubview:self];
+        self.frame = [UIApplication sharedApplication].keyWindow.bounds;
         
         //Calculate the point at which to show the menu
         _originLocation = [gestureRecognizer locationInView:self];

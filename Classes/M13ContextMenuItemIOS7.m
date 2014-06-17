@@ -60,6 +60,7 @@
     UIImage *image = self.highlighted ? _selectedIcon : _unselectedIcon;
     UIColor *color = self.highlighted ? [UIColor whiteColor] : _tintColor;
     image = [self tintedImage:image WithColor:color];
+    image = [self rotatedImage:image withOrientation:[UIApplication sharedApplication].statusBarOrientation];
     
     CGRect rect = CGRectIntegral(CGRectInset(self.bounds, self.bounds.size.width * 0.2, self.bounds.size.height * 0.2));
     
@@ -100,6 +101,37 @@
     UIGraphicsEndImageContext();
     
     return coloredImage;
+}
+
+- (UIImage *)rotatedImage:(UIImage *)image withOrientation:(UIInterfaceOrientation)orientation
+{
+    if (orientation != UIInterfaceOrientationPortrait) {
+        CGFloat angle;
+        if (orientation == UIInterfaceOrientationLandscapeLeft) {
+            angle = M_PI_2;
+        } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+            angle = M_PI_2 * 3;
+        } else {
+            angle = M_PI;
+        }
+        
+        CGImageRef imgRef = image.CGImage;
+        
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        transform = CGAffineTransformMakeScale(-1.0, 1.0);
+        transform = CGAffineTransformRotate(transform, angle); //use angle/360 *MPI
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextConcatCTM(context, transform);
+        CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), imgRef);
+        UIImage *imageCopy = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return imageCopy;
+    }
+    //No need to rotate
+    return image;
 }
 
 - (CGSize)baseSize
