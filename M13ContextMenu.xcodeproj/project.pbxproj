@@ -26,6 +26,7 @@
 		CA9A15C518F1BE3C008F96CF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9A15C418F1BE3C008F96CF /* QuartzCore.framework */; };
 		CAC6612A18FC2C80001F8E96 /* M13ContextMenuItemIOS7.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC6612918FC2C80001F8E96 /* M13ContextMenuItemIOS7.m */; };
 		CAC6612D18FC576B001F8E96 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC6612C18FC576B001F8E96 /* CollectionViewController.m */; };
+		CAC6D6981967A40F00DE78F5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC6D6971967A40F00DE78F5 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		CAC6612918FC2C80001F8E96 /* M13ContextMenuItemIOS7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = M13ContextMenuItemIOS7.m; path = Classes/M13ContextMenuItemIOS7.m; sourceTree = SOURCE_ROOT; };
 		CAC6612B18FC576B001F8E96 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		CAC6612C18FC576B001F8E96 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		CAC6D6961967A40F00DE78F5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		CAC6D6971967A40F00DE78F5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				CA9A15A118F1B65B008F96CF /* ViewController.m */,
 				CAC6612B18FC576B001F8E96 /* CollectionViewController.h */,
 				CAC6612C18FC576B001F8E96 /* CollectionViewController.m */,
+				CAC6D6961967A40F00DE78F5 /* TableViewController.h */,
+				CAC6D6971967A40F00DE78F5 /* TableViewController.m */,
 				CA9A15A318F1B65B008F96CF /* Images.xcassets */,
 				CA9A158F18F1B65B008F96CF /* Supporting Files */,
 			);
@@ -285,6 +290,7 @@
 				CAC6612D18FC576B001F8E96 /* CollectionViewController.m in Sources */,
 				CA9A159918F1B65B008F96CF /* AppDelegate.m in Sources */,
 				CA8767C818FAF99E00886C6D /* M13ContextMenu.m in Sources */,
+				CAC6D6981967A40F00DE78F5 /* TableViewController.m in Sources */,
 				CA9A159518F1B65B008F96CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
