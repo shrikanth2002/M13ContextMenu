@@ -110,25 +110,35 @@
         if (orientation == UIInterfaceOrientationLandscapeLeft) {
             angle = M_PI_2;
         } else if (orientation == UIInterfaceOrientationLandscapeRight) {
-            angle = M_PI_2 * 3;
+            angle = - M_PI_2;
         } else {
             angle = M_PI;
         }
         
-        CGImageRef imgRef = image.CGImage;
+        // calculate the size of the rotated view's containing box for our drawing space
+        UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0, image.size.width, image.size.height)];
+        CGAffineTransform t = CGAffineTransformMakeRotation(angle);
+        rotatedViewBox.transform = t;
+        CGSize rotatedSize = rotatedViewBox.frame.size;
         
-        CGAffineTransform transform = CGAffineTransformIdentity;
-        transform = CGAffineTransformMakeScale(-1.0, 1.0);
-        transform = CGAffineTransformRotate(transform, angle); //use angle/360 *MPI
+        // Create the bitmap context
+        UIGraphicsBeginImageContext(rotatedSize);
+        CGContextRef bitmap = UIGraphicsGetCurrentContext();
         
-        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextConcatCTM(context, transform);
-        CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), imgRef);
-        UIImage *imageCopy = UIGraphicsGetImageFromCurrentImageContext();
+        // Move the origin to the middle of the image so we will rotate and scale around the center.
+        CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
+        
+        //   // Rotate the image context
+        CGContextRotateCTM(bitmap, angle);
+        
+        // Now, draw the rotated/scaled image into the context
+        CGContextScaleCTM(bitmap, 1.0, -1.0);
+        CGContextDrawImage(bitmap, CGRectMake(-image.size.width / 2, -image.size.height / 2, image.size.width, image.size.height), [image CGImage]);
+        
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        
-        return imageCopy;
+        return newImage;
+
     }
     //No need to rotate
     return image;

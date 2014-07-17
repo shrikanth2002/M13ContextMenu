@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "M13ContextMenu"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A Pintrest style context menu iOS Applications."
 
   s.description  = <<-DESC
@@ -27,7 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   s.platform     = :ios, '5.0'
 
-  s.source = { :git => "https://github.com/Marxon13/M13ContextMenu.git", :tag => "v1.0.2"}
+  s.source = { :git => "https://github.com/Marxon13/M13ContextMenu.git", :tag => "v1.0.3"}
 
   s.source_files  = 'Classes/*'
 
