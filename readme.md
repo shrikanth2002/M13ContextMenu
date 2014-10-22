@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/Marxon13/M13ContextMenu/master/ImageResources/M13ContextMenuBanner.png">
 
-M13MarketKit
+M13ContextMenu
 ============
 
 M13ContextMenu is a Pintrest style context menu for iOS. Designed to work with UICollectionViews, it is easily added to any UICollectionView to add a context menu for each cell. It can also be added to any other UIView. The items are  customizable, so it is very easy to style the context menu for your application.
